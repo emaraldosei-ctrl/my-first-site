@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Insights – Healthcare Analytics Dashboard</title>
+  <meta name="description" content="Hospital Insights is a healthcare analytics portfolio dashboard combining nursing expertise, data analytics and AI evaluation. All data shown is synthetic demonstration data." />
+  <meta name="theme-color" content="#0b1f3a" />
+  <meta property="og:title" content="Hospital Insights – Healthcare Analytics Dashboard" />
+  <meta property="og:description" content="Interactive hospital analytics, patient safety and quality improvement insights built with synthetic demonstration data." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a href="#home" class="brand" aria-label="Hospital Insights home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+        </span>
+        <span class="brand-text">Hospital<span>Insights</span></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#dashboard" class="nav-link">Analytics</a></li>
+          <li><a href="#safety" class="nav-link">Patient Safety</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+        <a class="btn btn-outline-light btn-sm" href="https://github.com/emaraldosei-ctrl" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow eyebrow-light">
+            <span class="dot" aria-hidden="true"></span>
+            Nursing &middot; Data Analytics &middot; AI Evaluation
+          </span>
+          <h1 id="hero-title">Turning hospital data into <span class="text-teal">safer, smarter</span> patient care.</h1>
+          <p class="lead">
+            Hospital Insights is an interactive healthcare analytics dashboard that explores admissions,
+            bed capacity, nurse staffing and patient outcomes &mdash; viewed through the lens of frontline
+            nursing practice and responsible AI.
+          </p>
+          <div class="hero-actions">
+            <a href="#dashboard" class="btn btn-primary">Explore the dashboard</a>
+            <a href="#about" class="btn btn-ghost-light">About this project</a>
+          </div>
+          <p class="hero-note">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            All figures use synthetic demonstration data. No real patient information is used.
+          </p>
+        </div>
+
+        <div class="hero-card reveal" aria-label="Snapshot of synthetic hospital metrics">
+          <div class="hero-card-head">
+            <div>
+              <p class="hero-card-label">Live snapshot</p>
+              <p class="hero-card-title">Synthetic General Hospital</p>
+            </div>
+            <span class="badge badge-teal">Demo data</span>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <p class="hero-stat-label">Admissions (12 mo)</p>
+              <p class="hero-stat-value" id="hero-admissions">&mdash;</p>
+            </div>
+            <div class="hero-stat">
+              <p class="hero-stat-label">Avg bed occupancy</p>
+              <p class="hero-stat-value" id="hero-occupancy">&mdash;</p>
+            </div>
+            <div class="hero-stat">
+              <p class="hero-stat-label">RN staffing fill rate</p>
+              <p class="hero-stat-value" id="hero-staffing">&mdash;</p>
+            </div>
+            <div class="hero-stat">
+              <p class="hero-stat-label">30-day readmission</p>
+              <p class="hero-stat-value" id="hero-readmit">&mdash;</p>
+            </div>
+          </div>
+          <div class="hero-spark">
+            <canvas id="heroSpark" height="90" aria-label="Sparkline of monthly admissions" role="img"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <ul class="feature-strip reveal" aria-label="Dashboard highlights">
+          <li>
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
+            </span>
+            <div><strong>Operational analytics</strong><span>Admissions, beds &amp; staffing</span></div>
+          </li>
+          <li>
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <div><strong>Patient safety</strong><span>Falls, HAPI, infections</span></div>
+          </li>
+          <li>
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 3 3v1a3 3 0 0 1-1 5.83V17a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4v-.17A3 3 0 0 1 5 11v-1a3 3 0 0 1 3-3V6a4 4 0 0 1 4-4z"/></svg>
+            </span>
+            <div><strong>AI-assisted insights</strong><span>Explainable, human-reviewed</span></div>
+          </li>
+          <li>
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </span>
+            <div><strong>Nursing-led</strong><span>Clinically meaningful metrics</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="section" id="dashboard" aria-labelledby="dashboard-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Hospital analytics</span>
+          <h2 id="dashboard-title">Operational performance dashboard</h2>
+          <p>
+            Filter by department and time period to explore how patient flow, bed capacity and nurse staffing
+            interact &mdash; and how they shape patient outcomes.
+          </p>
+        </div>
+
+        <div class="synthetic-banner reveal" role="note">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          <p><strong>Synthetic demonstration data.</strong> All values for &ldquo;Synthetic General Hospital&rdquo; are randomly generated for portfolio purposes and do not represent any real patient, hospital or organisation.</p>
+        </div>
+
+        <form class="filters reveal" id="filters" aria-label="Dashboard filters" onsubmit="return false;">
+          <div class="filter-group">
+            <label for="filter-department">Department</label>
+            <div class="select-wrap">
+              <select id="filter-department" name="department"></select>
+            </div>
+          </div>
+
+          <fieldset class="filter-group">
+            <legend>Time period</legend>
+            <div class="segmented" role="radiogroup" aria-label="Time period">
+              <input type="radio" id="period-3" name="period" value="3" />
+              <label for="period-3">3 mo</label>
+              <input type="radio" id="period-6" name="period" value="6" />
+              <label for="period-6">6 mo</label>
+              <input type="radio" id="period-12" name="period" value="12" checked />
+              <label for="period-12">12 mo</label>
+            </div>
+          </fieldset>
+
+          <div class="filter-group">
+            <label for="filter-shift">Staffing view</label>
+            <div class="select-wrap">
+              <select id="filter-shift" name="shift">
+                <option value="all">All shifts</option>
+                <option value="day">Day shift</option>
+                <option value="night">Night shift</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-sm filters-reset" id="filters-reset">Reset filters</button>
+        </form>
+
+        <p class="sr-only" aria-live="polite" id="filter-status"></p>
+
+        <div class="kpi-grid" id="kpi-grid">
+          <article class="kpi-card reveal">
+            <div class="kpi-top">
+              <p class="kpi-label">Total admissions</p>
+              <span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+            </div>
+            <p class="kpi-value" id="kpi-admissions">&mdash;</p>
+            <p class="kpi-delta" id="kpi-admissions-delta"></p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-top">
+              <p class="kpi-label">Avg bed occupancy</p>
+              <span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></span>
+            </div>
+            <p class="kpi-value" id="kpi-occupancy">&mdash;</p>
+            <div class="kpi-meter" aria-hidden="true"><span id="kpi-occupancy-bar"></span></div>
+            <p class="kpi-delta" id="kpi-occupancy-delta"></p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-top">
+              <p class="kpi-label">Nurse : patient ratio</p>
+              <span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            </div>
+            <p class="kpi-value" id="kpi-ratio">&mdash;</p>
+            <p class="kpi-delta" id="kpi-ratio-delta"></p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-top">
+              <p class="kpi-label">Avg length of stay</p>
+              <span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            </div>
+            <p class="kpi-value" id="kpi-los">&mdash;</p>
+            <p class="kpi-delta" id="kpi-los-delta"></p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-top">
+              <p class="kpi-label">30-day readmission</p>
+              <span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span>
+            </div>
+            <p class="kpi-value" id="kpi-readmit">&mdash;</p>
+            <p class="kpi-delta" id="kpi-readmit-delta"></p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-top">
+              <p class="kpi-label">Patient experience</p>
+              <span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+            </div>
+            <p class="kpi-value" id="kpi-satisfaction">&mdash;</p>
+            <p class="kpi-delta" id="kpi-satisfaction-delta"></p>
+          </article>
+        </div>
+
+        <div class="chart-grid">
+          <article class="chart-card chart-wide reveal">
+            <header class="chart-head">
+              <div>
+                <h3>Patient admissions &amp; discharges</h3>
+                <p>Monthly patient flow for the selected department</p>
+              </div>
+              <span class="badge">Synthetic</span>
+            </header>
+            <div class="chart-body"><canvas id="admissionsChart" role="img" aria-label="Line chart of monthly admissions and discharges"></canvas></div>
+          </article>
+
+          <article class="chart-card reveal">
+            <header class="chart-head">
+              <div>
+                <h3>Patient outcomes</h3>
+                <p>Discharge destination mix</p>
+              </div>
+              <span class="badge">Synthetic</span>
+            </header>
+            <div class="chart-body chart-body-doughnut"><canvas id="outcomesChart" role="img" aria-label="Doughnut chart of patient discharge outcomes"></canvas></div>
+          </article>
+
+          <article class="chart-card reveal">
+            <header class="chart-head">
+              <div>
+                <h3>Bed occupancy by department</h3>
+                <p>Average occupancy vs. 85% safe-capacity threshold</p>
+              </div>
+              <span class="badge">Synthetic</span>
+            </header>
+            <div class="chart-body"><canvas id="occupancyChart" role="img" aria-label="Bar chart of bed occupancy by department"></canvas></div>
+          </article>
+
+          <article class="chart-card chart-wide reveal">
+            <header class="chart-head">
+              <div>
+                <h3>Registered nurse staffing levels</h3>
+                <p>Scheduled vs. required RN shifts, with fill rate</p>
+              </div>
+              <span class="badge">Synthetic</span>
+            </header>
+            <div class="chart-body"><canvas id="staffingChart" role="img" aria-label="Bar and line chart of scheduled versus required nurse shifts"></canvas></div>
+          </article>
+        </div>
+
+        <article class="table-card reveal">
+          <header class="chart-head">
+            <div>
+              <h3>Department summary</h3>
+              <p>Aggregated across the selected time period</p>
+            </div>
+            <span class="badge">Synthetic</span>
+          </header>
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption class="sr-only">Department summary of synthetic hospital metrics</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Department</th>
+                  <th scope="col">Beds</th>
+                  <th scope="col">Admissions</th>
+                  <th scope="col">Occupancy</th>
+                  <th scope="col">Avg LOS</th>
+                  <th scope="col">RN fill rate</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="dept-table-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SAFETY -->
+    <section class="section section-tint" id="safety" aria-labelledby="safety-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Patient safety &amp; quality improvement</span>
+          <h2 id="safety-title">Nurse-sensitive quality indicators</h2>
+          <p>
+            Tracking harm events and process measures helps nursing teams spot risk early,
+            test improvements with PDSA cycles and sustain safer care.
+          </p>
+        </div>
+
+        <div class="safety-kpis" id="safety-kpis"></div>
+
+        <div class="chart-grid chart-grid-2">
+          <article class="chart-card reveal">
+            <header class="chart-head">
+              <div>
+                <h3>Falls &amp; pressure injuries</h3>
+                <p>Rate per 1,000 patient days</p>
+              </div>
+              <span class="badge">Synthetic</span>
+            </header>
+            <div class="chart-body"><canvas id="harmChart" role="img" aria-label="Line chart of falls and pressure injury rates"></canvas></div>
+          </article>
+
+          <article class="chart-card reveal">
+            <header class="chart-head">
+              <div>
+                <h3>Hand hygiene compliance</h3>
+                <p>Observed compliance vs. 95% target</p>
+              </div>
+              <span class="badge">Synthetic</span>
+            </header>
+            <div class="chart-body"><canvas id="hygieneChart" role="img" aria-label="Line chart of hand hygiene compliance against target"></canvas></div>
+          </article>
+        </div>
+
+        <div class="insights-layout">
+          <div class="insights reveal">
+            <div class="insights-head">
+              <h3>
+                <span class="ai-chip" aria-hidden="true">AI</span>
+                Data-driven insights
+              </h3>
+              <p>Rule-based signals generated from the current filter selection. Every insight should be validated by clinical leaders before action.</p>
+            </div>
+            <ul class="insight-list" id="insight-list" aria-live="polite"></ul>
+          </div>
+
+          <div class="qi-card reveal">
+            <h3>Quality improvement roadmap</h3>
+            <p class="qi-sub">Illustrative PDSA cycle for reducing inpatient falls</p>
+            <ol class="qi-steps">
+              <li>
+                <span class="qi-step-tag">Plan</span>
+                <div>
+                  <strong>Identify the risk</strong>
+                  <p>Analyse fall events by time of day, unit and Morse score to target night-shift toileting needs.</p>
+                </div>
+              </li>
+              <li>
+                <span class="qi-step-tag">Do</span>
+                <div>
+                  <strong>Test a change</strong>
+                  <p>Pilot hourly purposeful rounding and bed-exit alarms on one medical-surgical unit.</p>
+                </div>
+              </li>
+              <li>
+                <span class="qi-step-tag">Study</span>
+                <div>
+                  <strong>Measure the impact</strong>
+                  <p>Compare fall rates per 1,000 patient days on run charts against the baseline period.</p>
+                </div>
+              </li>
+              <li>
+                <span class="qi-step-tag">Act</span>
+                <div>
+                  <strong>Adopt &amp; scale</strong>
+                  <p>Standardise the bundle, educate staff and spread to high-risk units with ongoing audits.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <img src="images/nurse-analytics.png" alt="A nurse in navy scrubs reviewing a healthcare analytics dashboard on a tablet in a hospital corridor" width="1024" height="1024" loading="lazy" />
+          <div class="about-media-card">
+            <p class="about-media-value">3</p>
+            <p class="about-media-label">disciplines, one goal: safer patient care</p>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <span class="eyebrow">About the project</span>
+          <h2 id="about-title">Where nursing expertise meets data and AI</h2>
+          <p>
+            Hospital Insights is a portfolio project built to show how clinical knowledge,
+            analytical skill and careful AI evaluation can work together to improve healthcare decisions.
+            Nurses see the patient story behind every number &mdash; analytics makes that story visible at scale.
+          </p>
+
+          <div class="pillars">
+            <article class="pillar">
+              <span class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>
+              <div>
+                <h3>Nursing expertise</h3>
+                <p>Defines which metrics truly matter at the bedside &mdash; from fall risk and pressure injuries to safe staffing &mdash; and provides the clinical context to interpret them.</p>
+              </div>
+            </article>
+            <article class="pillar">
+              <span class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7"/><rect x="14" y="6" width="3" height="11"/></svg></span>
+              <div>
+                <h3>Healthcare data analytics</h3>
+                <p>Transforms operational and quality data into clear trends, benchmarks and dashboards that help leaders allocate beds and staff before pressure points become harm.</p>
+              </div>
+            </article>
+            <article class="pillar">
+              <span class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></span>
+              <div>
+                <h3>AI evaluation</h3>
+                <p>Critically assesses AI tools for accuracy, bias, transparency and safety, ensuring predictions support &mdash; never replace &mdash; professional clinical judgement.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="principles">
+            <h3>Responsible AI principles</h3>
+            <ul>
+              <li>Human-in-the-loop review for every clinical recommendation</li>
+              <li>Fairness checks across patient groups and units</li>
+              <li>Explainable outputs that clinicians can question</li>
+              <li>Privacy by design &mdash; synthetic data for demonstrations</li>
+            </ul>
+          </div>
+
+          <a class="btn btn-primary" href="https://github.com/emaraldosei-ctrl" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            View my GitHub profile
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand brand-footer" aria-label="Back to top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+          </span>
+          <span class="brand-text">Hospital<span>Insights</span></span>
+        </a>
+        <p class="footer-tag">Healthcare analytics dashboard exploring nursing, data analytics and AI-driven healthcare improvement.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#dashboard">Analytics</a></li>
+          <li><a href="#safety">Patient Safety</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="https://github.com/emaraldosei-ctrl" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p><strong>Disclaimer:</strong> All data on this site is synthetic and generated for demonstration only. It does not contain or represent real patient information.</p>
+      <p>&copy; <span id="year"></span> Hospital Insights</p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/chart.umd.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
